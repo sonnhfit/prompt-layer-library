@@ -11,7 +11,7 @@ import requests
 import promptlayer
 
 URL_API_PROMPTLAYER = os.environ.setdefault(
-    "URL_API_PROMPTLAYER", "https://api.promptlayer.com"
+    "URL_API_PROMPTLAYER", "https://services.entrade.com.vn/dsai-mdp-api/prompt-tracker"
 )
 
 
