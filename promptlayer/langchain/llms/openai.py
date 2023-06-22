@@ -16,6 +16,7 @@ class OpenAI(OpenAI, BaseModel):
         for i in range(len(prompts)):
             prompt = prompts[i]
             resp = generated_responses.generations[i]
+            print(resp)
             promptlayer_api_request(
                 "langchain.PromptLayerOpenAI",
                 "langchain",
@@ -39,6 +40,7 @@ class OpenAI(OpenAI, BaseModel):
         for i in range(len(prompts)):
             prompt = prompts[i]
             resp = generated_responses.generations[i]
+            print(resp)
             promptlayer_api_request(
                 "langchain.PromptLayerOpenAI.async",
                 "langchain",
