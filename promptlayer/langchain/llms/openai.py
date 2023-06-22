@@ -12,6 +12,7 @@ class OpenAI(OpenAI, BaseModel):
         from promptlayer.utils import get_api_key, promptlayer_api_request
         request_start_time = datetime.datetime.now().timestamp()
         generated_responses = super()._generate(prompts, stop)
+        print("res:", generated_responses)
         request_end_time = datetime.datetime.now().timestamp()
         for i in range(len(prompts)):
             prompt = prompts[i]
@@ -36,6 +37,7 @@ class OpenAI(OpenAI, BaseModel):
         from promptlayer.utils import get_api_key, promptlayer_api_request
         request_start_time = datetime.datetime.now().timestamp()
         generated_responses = await super()._agenerate(prompts, stop)
+        print("res:", generated_responses)
         request_end_time = datetime.datetime.now().timestamp()
         for i in range(len(prompts)):
             prompt = prompts[i]
