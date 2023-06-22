@@ -3,6 +3,7 @@ from typing import List, Optional
 from pydantic import BaseModel
 from langchain.schema import LLMResult
 import datetime
+import logging
 
 class OpenAI(OpenAI, BaseModel):
     pl_tags: Optional[List[str]]
@@ -13,6 +14,8 @@ class OpenAI(OpenAI, BaseModel):
         request_start_time = datetime.datetime.now().timestamp()
         generated_responses = super()._generate(prompts, stop)
         print("res:", generated_responses)
+        logging.warning(generated_responses)
+        logging.warning(generated_responses.generations)
         request_end_time = datetime.datetime.now().timestamp()
         for i in range(len(prompts)):
             prompt = prompts[i]
@@ -38,6 +41,8 @@ class OpenAI(OpenAI, BaseModel):
         request_start_time = datetime.datetime.now().timestamp()
         generated_responses = await super()._agenerate(prompts, stop)
         print("res:", generated_responses)
+        logging.warning(generated_responses)
+        logging.warning(generated_responses.generations)
         request_end_time = datetime.datetime.now().timestamp()
         for i in range(len(prompts)):
             prompt = prompts[i]
